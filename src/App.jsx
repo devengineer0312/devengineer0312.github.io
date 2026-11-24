@@ -5,6 +5,7 @@ import About from './components/About.jsx'
 import Tools from './components/Tools.jsx'
 import Process from './components/Process.jsx'
 import Projects from './components/Projects.jsx'
+import GitHub from './components/GitHub.jsx'
 import AlbumViewer from './components/AlbumViewer.jsx'
 import Experience from './components/Experience.jsx'
 import Contact from './components/Contact.jsx'
@@ -54,6 +55,7 @@ export default function App() {
         <Hero />
         <About />
         <Projects onOpen={openAlbum} />
+        <GitHub />
         <Experience />
         <Tools />
         <Process />

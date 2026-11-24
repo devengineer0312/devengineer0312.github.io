@@ -14,7 +14,7 @@ export default function Contact() {
       <div className="container">
         <div className="contact-card">
           <div>
-            <p className="kicker mono">06 · Let’s work together</p>
+            <p className="kicker mono">07 · Let’s work together</p>
             <h2>Have a board to build?</h2>
             <p className="section-lede">
               Send me the requirements, a block diagram or an existing design that needs a review through Upwork.

@@ -15,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "images": "node scripts/optimize-images.mjs"
+    "images": "node scripts/optimize-images.mjs",
+    "github": "node scripts/fetch-github.mjs"
   },
   "eslintConfig": {
     "extends": ["react-app"]

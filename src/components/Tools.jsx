@@ -3,11 +3,11 @@ import BrandIcon from './BrandIcon.jsx'
 
 export default function Tools() {
   return (
-    <section className="section" id="tools">
+    <section className="section section-alt" id="tools">
       <div className="container">
         <header className="section-head">
           <div>
-            <p className="kicker mono">04 · Tools</p>
+            <p className="kicker mono">05 · Tools</p>
             <h2>The software and silicon I work with</h2>
             <p className="section-lede">
               Professional ECAD and MCAD tools for design, simulation tools for checking it, and the platforms the boards are built around.
