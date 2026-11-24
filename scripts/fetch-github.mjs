@@ -1,10 +1,13 @@
-// Fetches language breakdowns + last-update dates for the repos in src/data/github.js
+// Fetches language breakdowns for the projects in src/data/projects.js that have a `repo`
 // and writes src/data/github-languages.json. Uses the public GitHub API (no token needed).
 // Run: npm run github
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { repos, githubUser, languageColors } from '../src/data/github.js'
+import { githubUser, languageColors } from '../src/data/github.js'
+import { projects } from '../src/data/projects.js'
+
+const repos = projects.filter((p) => p.repo).map((p) => ({ name: p.repo }))
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 const headers = { 'User-Agent': 'portfolio-build', Accept: 'application/vnd.github+json' }

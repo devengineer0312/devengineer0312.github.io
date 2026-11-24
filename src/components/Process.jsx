@@ -2,11 +2,11 @@ import { workflow } from '../data/profile.js'
 
 export default function Process() {
   return (
-    <section className="section" id="process">
+    <section className="section section-alt" id="process">
       <div className="container">
         <header className="section-head">
           <div>
-            <p className="kicker mono">06 · Process</p>
+            <p className="kicker mono">05 · Process</p>
             <h2>How we’ll work together</h2>
             <p className="section-lede">
               A clear path from first requirements to a working, manufacturable product, with a deliverable you can review at every step.

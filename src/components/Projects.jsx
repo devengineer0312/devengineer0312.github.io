@@ -2,6 +2,11 @@ import { useMemo, useState } from 'react'
 import { categories, projects } from '../data/projects.js'
 import { thumbSrc, imgSize } from '../lib.js'
 import { Images, Search } from './Icons.jsx'
+import BrandIcon from './BrandIcon.jsx'
+import LanguageBar from './LanguageBar.jsx'
+import { githubProfile, githubUser } from '../data/github.js'
+
+const ghIcon = { icon: 'github', name: 'GitHub' }
 
 function AlbumCard({ project, onOpen, index }) {
   const count = project.images.length
@@ -16,6 +21,7 @@ function AlbumCard({ project, onOpen, index }) {
           <div className="cover">
             <img src={thumbSrc(project.id, 0)} alt={project.images[0].caption} width={w} height={h} loading="lazy" />
             {project.featured && <span className="ribbon mono">Featured</span>}
+            {project.repo && <span className="gh-badge mono"><BrandIcon item={ghIcon} size={14} /> GitHub</span>}
             <span className="count mono"><Images /> {count}</span>
           </div>
         </div>
@@ -30,6 +36,7 @@ function AlbumCard({ project, onOpen, index }) {
           <ul className="tags">
             {project.tags.slice(0, 4).map((t) => <li key={t}>{t}</li>)}
           </ul>
+          {project.repo && <LanguageBar repo={project.repo} max={2} />}
         </div>
       </button>
       {/* quick-jump strip: open the album at a specific photo */}
@@ -71,7 +78,8 @@ export default function Projects({ onOpen }) {
     .map((c) => ({ ...c, items: list.filter((p) => p.category === c.id) }))
     .filter((g) => g.items.length)
 
-  const totalImages = projects.reduce((n, p) => n + p.images.length, 0)
+  const hardwareCount = projects.filter((p) => !p.repo).length
+  const repoCount = projects.length - hardwareCount
 
   return (
     <section className="section" id="projects">
@@ -81,10 +89,14 @@ export default function Projects({ onOpen }) {
             <p className="kicker mono">02 · Portfolio</p>
             <h2>Project albums</h2>
             <p className="section-lede">
-              {projects.length} hardware builds · {totalImages} photos, renders, layouts and schematics.
+              {hardwareCount} hardware builds and {repoCount} firmware / software projects from my GitHub.
               Open any album to step through the images and read the spec sheet.
             </p>
           </div>
+          <div className="projects-tools">
+          <a className="btn btn-ghost btn-sm" href={githubProfile} target="_blank" rel="noreferrer">
+            <BrandIcon item={ghIcon} size={16} /> github.com/{githubUser}
+          </a>
           <label className="search">
             <Search />
             <input
@@ -94,6 +106,7 @@ export default function Projects({ onOpen }) {
               onChange={(e) => setQ(e.target.value)}
             />
           </label>
+          </div>
         </header>
 
         <div className="filters" role="tablist" aria-label="Filter projects by category">

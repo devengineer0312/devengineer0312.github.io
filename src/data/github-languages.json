@@ -13,54 +13,6 @@
       }
     ]
   },
-  "PHYS-eLocker-BLE-firmware-master": {
-    "updated": "2026-11-20T15:15:10Z",
-    "stars": 0,
-    "languages": [
-      {
-        "name": "C",
-        "pct": 99.5
-      }
-    ]
-  },
-  "smartring-f723e_disco": {
-    "updated": "2026-11-20T15:07:04Z",
-    "stars": 0,
-    "languages": [
-      {
-        "name": "C",
-        "pct": 99.8
-      }
-    ]
-  },
-  "USBDemoBoard_Firmware": {
-    "updated": "2026-11-20T15:21:21Z",
-    "stars": 0,
-    "languages": [
-      {
-        "name": "C",
-        "pct": 65.8
-      },
-      {
-        "name": "C#",
-        "pct": 34.2
-      }
-    ]
-  },
-  "24GHz-radar": {
-    "updated": "2026-11-20T14:52:54Z",
-    "stars": 0,
-    "languages": [
-      {
-        "name": "C",
-        "pct": 97.2
-      },
-      {
-        "name": "C++",
-        "pct": 2.5
-      }
-    ]
-  },
   "FPGA_ADC_FIRMWARE": {
     "updated": "2026-11-20T15:29:11Z",
     "stars": 0,
@@ -76,6 +28,16 @@
       {
         "name": "C++",
         "pct": 1.1
+      }
+    ]
+  },
+  "PHYS-eLocker-BLE-firmware-master": {
+    "updated": "2026-11-20T15:15:10Z",
+    "stars": 0,
+    "languages": [
+      {
+        "name": "C",
+        "pct": 99.5
       }
     ]
   },
@@ -120,6 +82,44 @@
       {
         "name": "CSS",
         "pct": 5.5
+      }
+    ]
+  },
+  "smartring-f723e_disco": {
+    "updated": "2026-11-20T15:07:04Z",
+    "stars": 0,
+    "languages": [
+      {
+        "name": "C",
+        "pct": 99.8
+      }
+    ]
+  },
+  "USBDemoBoard_Firmware": {
+    "updated": "2026-11-20T15:21:21Z",
+    "stars": 0,
+    "languages": [
+      {
+        "name": "C",
+        "pct": 65.8
+      },
+      {
+        "name": "C#",
+        "pct": 34.2
+      }
+    ]
+  },
+  "24GHz-radar": {
+    "updated": "2026-11-20T14:52:54Z",
+    "stars": 0,
+    "languages": [
+      {
+        "name": "C",
+        "pct": 97.2
+      },
+      {
+        "name": "C++",
+        "pct": 2.5
       }
     ]
   }

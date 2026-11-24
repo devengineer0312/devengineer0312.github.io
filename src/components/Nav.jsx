@@ -4,7 +4,6 @@ import { profile } from '../data/profile.js'
 const links = [
   ['About', '#about'],
   ['Projects', '#projects'],
-  ['GitHub', '#github'],
   ['Experience', '#experience'],
   ['Tools', '#tools'],
   ['Process', '#process'],

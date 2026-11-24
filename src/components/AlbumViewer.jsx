@@ -3,6 +3,9 @@ import { categories } from '../data/projects.js'
 import { profile } from '../data/profile.js'
 import { imgSrc, thumbSrc, imgSize, pad2 } from '../lib.js'
 import { ArrowLeft, ArrowRight, Close, Link } from './Icons.jsx'
+import BrandIcon from './BrandIcon.jsx'
+import LanguageBar from './LanguageBar.jsx'
+import { repoUrl } from '../data/github.js'
 
 const catLabel = (id) => categories.find((c) => c.id === id)?.label ?? id
 
@@ -123,6 +126,15 @@ export default function AlbumViewer({ project, index, onIndex, onClose }) {
           <p className="panel-meta mono">{project.tool} · {project.layers}</p>
           <p className="panel-summary">{project.summary}</p>
 
+          {project.repo && (
+            <div className="repo-box">
+              <a className="btn btn-ghost block" href={repoUrl(project.repo)} target="_blank" rel="noreferrer">
+                <BrandIcon item={{ icon: 'github', name: 'GitHub' }} size={18} /> View code on GitHub
+              </a>
+              <LanguageBar repo={project.repo} max={4} />
+            </div>
+          )}
+
           <h3 className="panel-h mono">Spec sheet</h3>
           <dl className="specs">
             {project.specs.map(([k, v]) => (
@@ -133,7 +145,7 @@ export default function AlbumViewer({ project, index, onIndex, onClose }) {
             ))}
           </dl>
 
-          <h3 className="panel-h mono">Engineering notes</h3>
+          <h3 className="panel-h mono">{project.notesTitle || 'Engineering notes'}</h3>
           <ul className="notes">
             {project.contributions.map((c) => <li key={c}>{c}</li>)}
           </ul>
@@ -145,7 +157,7 @@ export default function AlbumViewer({ project, index, onIndex, onClose }) {
           </ul>
 
           <a className="btn btn-copper block" href={profile.upwork} target="_blank" rel="noreferrer">
-            Discuss a similar board <ArrowRight />
+            {project.repo ? 'Discuss a similar project' : 'Discuss a similar board'} <ArrowRight />
           </a>
           <p className="kbd-hint mono">← → navigate · Esc close</p>
         </aside>

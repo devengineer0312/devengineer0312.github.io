@@ -16,7 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "images": "node scripts/optimize-images.mjs",
-    "github": "node scripts/fetch-github.mjs"
+    "github": "node scripts/fetch-github.mjs",
+    "covers": "node scripts/make-covers.mjs"
   },
   "eslintConfig": {
     "extends": ["react-app"]

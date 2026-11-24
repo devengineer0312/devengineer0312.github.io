@@ -11,6 +11,7 @@ export const categories = [
   { id: 'iot', label: 'IoT & Connected Devices', blurb: 'Networked sensor nodes and wireless processing platforms.' },
   { id: 'wearable', label: 'Wearables & Miniature Devices', blurb: 'Battery-powered, space-constrained products shaped to their enclosures.' },
   { id: 'industrial', label: 'Industrial Control & Power', blurb: 'Isolated control, power management and high-current switching.' },
+  { id: 'devboards', label: 'Dev Boards & Embedded Tools', blurb: 'Evaluation boards, USB devices and the host tools that drive them.' },
 ]
 
 export const projects = [
@@ -437,6 +438,273 @@ export const projects = [
       {
         file: 'IRIS Camera board/IRIS camera board2.png',
         caption: 'Side detail: lens module, FPC connector and IR sensor.',
+      },
+    ],
+  },
+  // ------------------------------------------------------------------
+  // Projects from GitHub (github.com/devengineer0312). `repo` links the album
+  // to its repository; images marked "Illustration" are diagrams drawn from the
+  // repository contents (scripts/make-covers.mjs), the rest come from the repo.
+  // ------------------------------------------------------------------
+  {
+    id: 'gh-headband-eeg',
+    repo: 'Headband_EEG_Firmware',
+    featured: false,
+    title: '6-Channel EEG Headband Firmware',
+    short: 'ATmega1284 firmware: EEG acquisition, impedance checks and Bluetooth streaming.',
+    category: 'medical',
+    layers: 'Firmware · C++',
+    tool: 'Arduino / AVR',
+    tags: ['ATmega1284', 'EEG', '6 channels', 'Bluetooth', 'Impedance'],
+    summary:
+      'Firmware for a wearable 6-channel EEG headband built on an ATmega1284. It drives the analog front end, measures electrode impedance, streams data over Bluetooth, can generate synthetic test signals, and exposes a serial command set to enable or disable individual channels and start or stop streaming.',
+    specs: [
+      ['MCU', 'ATmega1284 @ 16 MHz'],
+      ['Channels', '6 EEG channels'],
+      ['Link', 'Bluetooth data stream'],
+      ['Checks', 'Electrode impedance'],
+      ['Test mode', 'Synthetic signal generator'],
+      ['Code', 'C++ (Arduino)'],
+    ],
+    notesTitle: 'In the repository',
+    contributions: [
+      'Separate modules for ADC acquisition (adc.cpp), Bluetooth (bth.cpp) and impedance measurement (impedance.cpp).',
+      'Single-character serial command protocol for per-channel control, streaming, synthetic data and soft reset.',
+      'Pre-built .hex images, with and without bootloader, for programming boards.',
+    ],
+    images: [
+      {
+        file: 'GitHub repositories/Headband_EEG_Firmware/cover.png',
+        caption: 'Illustration: 6 headband electrodes → ATmega1284 acquisition and impedance checks → Bluetooth stream to the host.',
+      },
+    ],
+  },
+  {
+    id: 'gh-fpga-adc',
+    repo: 'FPGA_ADC_FIRMWARE',
+    featured: false,
+    title: 'FPGA ADC / DAC Data Acquisition',
+    short: 'VHDL interfaces for an ADS8330 ADC and AD5441 DAC, plus a 48-channel PC app.',
+    category: 'medical',
+    layers: 'FPGA · VHDL',
+    tool: 'Intel Quartus',
+    tags: ['VHDL', 'Quartus', 'ADS8330', 'AD5441', '48 channels'],
+    summary:
+      'FPGA design for a multi-channel data-acquisition system on an Intel (Altera) device: VHDL interface blocks for the TI ADS8330 16-bit ADC and the AD5441 DAC with a power-on reset block, developed through numbered design iterations, plus a Windows application for 48-channel acquisition.',
+    specs: [
+      ['FPGA', 'Intel (Altera) · Quartus'],
+      ['HDL', 'VHDL (+ Verilog)'],
+      ['ADC', 'TI ADS8330, 16-bit'],
+      ['DAC', 'AD5441'],
+      ['Host', '48-channel Windows app (C++)'],
+    ],
+    notesTitle: 'In the repository',
+    contributions: [
+      'ADC and DAC interface entities (ads8330_interface, ad5441_interface) with a top-level adc_dac_interface.',
+      'Design iterations kept as separate Quartus projects (Itn1 → Itn5) with fit, timing and pin reports.',
+      'Firmware 3.3 release with pin-assignment fixes and the 48-channel acquisition application.',
+    ],
+    images: [
+      {
+        file: 'GitHub repositories/FPGA_ADC_FIRMWARE/cover.png',
+        caption: 'Illustration: 48 analog channels → ADS8330 ADC → FPGA interface logic → AD5441 DAC, with the 48-channel PC application.',
+      },
+    ],
+  },
+  {
+    id: 'gh-elocker',
+    repo: 'PHYS-eLocker-BLE-firmware-master',
+    featured: false,
+    title: 'eLocker BLE Smart Lock Firmware',
+    short: 'TI CC2640R2 production firmware: BLE access, RFID, AES-128, motor and logs.',
+    category: 'iot',
+    layers: 'Firmware · C',
+    tool: 'TI BLE SDK',
+    tags: ['TI CC2640R2', 'BLE', 'RFID', 'AES-128', 'Production'],
+    summary:
+      'Production firmware for a Bluetooth Low Energy electronic locker on the TI CC2640R2. It handles phone access over BLE, an RFID reader over SPI, AES-128 encryption, lock-motor control, battery monitoring and non-volatile event logs, and ships as versioned releases with production programming and test guides.',
+    specs: [
+      ['MCU', 'TI CC2640R2 (BLE)'],
+      ['Access', 'BLE phone app · RFID'],
+      ['Security', 'AES-128'],
+      ['Hardware', 'Lock motor · battery ADC'],
+      ['Releases', 'v0.2.2 → v0.4.5'],
+    ],
+    notesTitle: 'In the repository',
+    contributions: [
+      'Application modules for RFID driver and task manager, SPI driver, encryption, logs, NV commands and hardware control.',
+      'Release notes tracking fixes such as accurate battery sensing (ADC on a floating pin) and an engineering/installation mode.',
+      'Production programming and testing documents bundled with each release build.',
+    ],
+    images: [
+      {
+        file: 'GitHub repositories/PHYS-eLocker-BLE-firmware-master/cover.png',
+        caption: 'Illustration: CC2640R2 firmware blocks: BLE phone access, RFID, AES-128, motor, battery ADC and event logs, with the release history.',
+      },
+    ],
+  },
+  {
+    id: 'gh-pet-tracker',
+    repo: 'Pet-tracker',
+    featured: false,
+    title: 'Pet Tracker: GPS & Motion IoT',
+    short: 'ESP32-C6 GPS + IMU tracker with WebSocket telemetry and a live map dashboard.',
+    category: 'iot',
+    layers: 'Firmware + Web',
+    tool: 'ESP32 / Angular',
+    tags: ['ESP32-C6', 'GPS NEO-6M', 'MPU-6050', 'WebSocket', 'Angular'],
+    summary:
+      'An end-to-end IoT pet tracker. An ESP32-C6 reads a u-blox NEO-6M GPS and an MPU-6050 IMU for activity detection, and sends telemetry over secure WebSockets to an Angular dashboard that shows the pet live on a map. The app is deployed and publicly accessible.',
+    specs: [
+      ['MCU', 'ESP32-C6'],
+      ['Position', 'u-blox NEO-6M GPS'],
+      ['Motion', 'MPU-6050 IMU'],
+      ['Link', 'Secure WebSocket'],
+      ['Dashboard', 'Angular 20 · TypeScript'],
+    ],
+    notesTitle: 'In the repository',
+    contributions: [
+      'ESP32-C6 firmware for GPS and IMU acquisition and activity detection.',
+      'Angular dashboard showing the pet’s live location on a map.',
+      'Wiring diagram for the prototype and container setup for deployment.',
+    ],
+    images: [
+      {
+        file: 'GitHub repositories/Pet-tracker/map-dashboard.png',
+        caption: 'PetTracker dashboard: live pet position on the map.',
+      },
+      {
+        file: 'GitHub repositories/Pet-tracker/circuit.png',
+        caption: 'Prototype wiring: ESP32-C6 DevKit, MPU-6050 IMU and NEO-6M GPS with patch antenna.',
+      },
+    ],
+  },
+  {
+    id: 'gh-vanguard',
+    repo: 'Vanguard-Telemetry-Enterprise-IoT-Fleet-Tracking',
+    featured: false,
+    title: 'Vanguard Telemetry: IoT Fleet Tracking',
+    short: 'Real-time GPS fleet platform: telemetry ingest, geofences and a live command center.',
+    category: 'iot',
+    layers: 'Full-stack IoT',
+    tool: 'Node.js / React',
+    tags: ['GPS telemetry', 'Geofencing', 'Node.js', 'React', 'Redis', 'Socket.io'],
+    summary:
+      'A full-stack IoT fleet-monitoring platform for real-time GPS telemetry ingestion, geofence evaluation and live asset visualisation. Built with TypeScript, Node.js, React, Redis, Prisma and Socket.io, it supports both simulated fleets and live device telemetry.',
+    specs: [
+      ['Backend', 'Node.js · TypeScript'],
+      ['Data', 'Redis · Prisma'],
+      ['Realtime', 'Socket.io'],
+      ['Frontend', 'React command center'],
+      ['Features', 'Geofences · live maps'],
+    ],
+    notesTitle: 'In the repository',
+    contributions: [
+      'Telemetry processing: receive, validate and process GPS updates from devices or the built-in simulator.',
+      'Geofence engine that evaluates asset positions against boundaries in real time.',
+      'Interactive React command center with live map and asset status.',
+    ],
+    images: [
+      {
+        file: 'GitHub repositories/Vanguard-Telemetry-Enterprise-IoT-Fleet-Tracking/cover.png',
+        caption: 'Illustration: GPS devices → ingest → geofence engine → live React command center.',
+      },
+      {
+        file: 'GitHub repositories/Vanguard-Telemetry-Enterprise-IoT-Fleet-Tracking/logo.jpg',
+        caption: 'Vanguard Telemetry logo.',
+      },
+    ],
+  },
+  {
+    id: 'gh-smartring',
+    repo: 'smartring-f723e_disco',
+    featured: false,
+    title: 'Smart Ring UI on STM32F7',
+    short: 'Cortex-M7 touchscreen interface on the STM32F723E-Discovery kit.',
+    category: 'wearable',
+    layers: 'Firmware · C',
+    tool: 'STM32 / HAL',
+    tags: ['STM32F723', 'Cortex-M7', 'Touchscreen', 'HAL'],
+    summary:
+      'STM32F7 (Cortex-M7) application on the STM32F723E-Discovery kit for a smart-ring interface: touchscreen driver with calibration and the ring UI logic, built on ST HAL and CMSIS.',
+    specs: [
+      ['MCU', 'STM32F723 · Cortex-M7'],
+      ['Board', 'STM32F723E-Discovery'],
+      ['Display', 'Touchscreen + calibration'],
+      ['Stack', 'ST HAL · CMSIS'],
+    ],
+    notesTitle: 'In the repository',
+    contributions: [
+      'Smart-ring application logic (smartring.c) and clock setup (clock.c).',
+      'Touchscreen calibration routine (ts_calib.c).',
+      'Built on ST’s Discovery-kit HAL, CMSIS and utilities.',
+    ],
+    images: [
+      {
+        file: 'GitHub repositories/smartring-f723e_disco/cover.png',
+        caption: 'Illustration: smart-ring UI on the Discovery board touchscreen, with the firmware layers.',
+      },
+    ],
+  },
+  {
+    id: 'gh-usb-demo',
+    repo: 'USBDemoBoard_Firmware',
+    featured: false,
+    title: 'USB Demo Board: Firmware + Host App',
+    short: 'PIC USB device firmware with a C# Windows host application.',
+    category: 'devboards',
+    layers: 'Firmware + Host',
+    tool: 'MPLAB / C#',
+    tags: ['PIC', 'USB device', 'MPLAB', 'C# WinForms'],
+    summary:
+      'A USB demo board package: Microchip PIC USB device firmware written in C (MPLAB) and a C# Windows Forms host application that connects to the board over USB to exchange commands and data.',
+    specs: [
+      ['MCU', 'Microchip PIC (USB)'],
+      ['Firmware', 'C · MPLAB'],
+      ['Host', 'C# Windows Forms'],
+      ['Version', '4.6.1'],
+    ],
+    notesTitle: 'In the repository',
+    contributions: [
+      'Device firmware with USB functions and linker script for the PIC target.',
+      'Windows host app with a USB class for device communication.',
+      'Pre-built firmware .hex for programming.',
+    ],
+    images: [
+      {
+        file: 'GitHub repositories/USBDemoBoard_Firmware/cover.png',
+        caption: 'Illustration: PIC USB device board connected to the C# Windows host application.',
+      },
+    ],
+  },
+  {
+    id: 'gh-24ghz-radar',
+    repo: '24GHz-radar',
+    featured: false,
+    title: '24 GHz Doppler Radar (Sense2GoL)',
+    short: 'Arduino IDE support for Infineon’s Sense2GoL 24 GHz radar board.',
+    category: 'devboards',
+    layers: 'Firmware · C',
+    tool: 'Arduino / J-Link',
+    tags: ['24 GHz radar', 'Infineon XMC1300', 'Arduino', 'J-Link'],
+    summary:
+      'Arduino IDE integration for Infineon’s Sense2GoL 24 GHz Doppler radar demo board (XMC1300 MCU), including the board core and setup for flashing and debugging with SEGGER J-Link.',
+    specs: [
+      ['Radar', '24 GHz Doppler'],
+      ['Board', 'Infineon Sense2GoL'],
+      ['MCU', 'XMC1300 (Arm Cortex-M0)'],
+      ['Tooling', 'Arduino IDE · SEGGER J-Link'],
+    ],
+    notesTitle: 'In the repository',
+    contributions: [
+      'Arduino board package and core for the XMC1300-based radar board.',
+      'Installation guide for the Arduino IDE and J-Link drivers.',
+      'Based on Infineon’s Sense2GoL Arduino integration.',
+    ],
+    images: [
+      {
+        file: 'GitHub repositories/24GHz-radar/cover.png',
+        caption: 'Illustration: Sense2GoL radar board, Doppler signal from a moving target, and the J-Link / Arduino tool chain.',
       },
     ],
   },

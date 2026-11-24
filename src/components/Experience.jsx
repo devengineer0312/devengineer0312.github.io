@@ -2,11 +2,11 @@ import { experience, education } from '../data/profile.js'
 
 export default function Experience() {
   return (
-    <section className="section" id="experience">
+    <section className="section section-alt" id="experience">
       <div className="container">
         <header className="section-head">
           <div>
-            <p className="kicker mono">04 · Experience</p>
+            <p className="kicker mono">03 · Experience</p>
             <h2>12 years building production hardware</h2>
           </div>
         </header>
