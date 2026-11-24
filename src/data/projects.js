@@ -634,8 +634,9 @@ export const projects = [
   },
   // ------------------------------------------------------------------
   // Projects from GitHub (github.com/devengineer0312). `repo` links the album
-  // to its repository; images marked "Illustration" are diagrams drawn from the
-  // repository contents (scripts/make-covers.mjs), the rest come from the repo.
+  // to its repository. Images with a `credit` are openly licensed reference photos
+  // of the technology from Wikimedia Commons (credited in the viewer and listed in
+  // ../projects/GitHub repositories/photo-credits.json); the rest come from the repo.
   // ------------------------------------------------------------------
   {
     id: 'gh-headband-eeg',
@@ -665,8 +666,9 @@ export const projects = [
     ],
     images: [
       {
-        file: 'GitHub repositories/Headband_EEG_Firmware/cover.png',
-        caption: 'Illustration: 6 headband electrodes → ATmega1284 acquisition and impedance checks → Bluetooth stream to the host.',
+        file: 'GitHub repositories/Headband_EEG_Firmware/photo-1.jpg',
+        caption: 'Reference photo: a scalp EEG electrode cap, the kind of electrode setup this headband firmware acquires signals from.',
+        credit: { text: 'Chris Hope · CC BY 2.0', url: 'https://commons.wikimedia.org/wiki/File:EEG_Recording_Cap.jpg' },
       },
     ],
   },
@@ -697,8 +699,9 @@ export const projects = [
     ],
     images: [
       {
-        file: 'GitHub repositories/FPGA_ADC_FIRMWARE/cover.png',
-        caption: 'Illustration: 48 analog channels → ADS8330 ADC → FPGA interface logic → AD5441 DAC, with the 48-channel PC application.',
+        file: 'GitHub repositories/FPGA_ADC_FIRMWARE/photo-1.jpg',
+        caption: 'Reference photo: an FPGA board. The firmware runs ADC capture and DAC output in FPGA logic like this.',
+        credit: { text: 'NASA Marshall Space Flight Center / NASA/Firefly Aerospace · Public domain', url: 'https://commons.wikimedia.org/wiki/File:NASA_to_Test_Solution_for_Radiation-Tolerant_Computing_in_Space_(FPGA_Board_Rev4_10-18-2021).jpg' },
       },
     ],
   },
@@ -729,8 +732,14 @@ export const projects = [
     ],
     images: [
       {
-        file: 'GitHub repositories/PHYS-eLocker-BLE-firmware-master/cover.png',
-        caption: 'Illustration: CC2640R2 firmware blocks: BLE phone access, RFID, AES-128, motor, battery ADC and event logs, with the release history.',
+        file: 'GitHub repositories/PHYS-eLocker-BLE-firmware-master/photo-1.jpg',
+        caption: 'Reference photo: a smart lock. The firmware adds Bluetooth phone access and RFID to an electronic locker lock.',
+        credit: { text: 'P1898 · CC BY 4.0', url: 'https://commons.wikimedia.org/wiki/File:Master_Lock_Smart_Lock_2026-08-12_Grade_C_copper_01.jpg' },
+      },
+      {
+        file: 'GitHub repositories/PHYS-eLocker-BLE-firmware-master/photo-2.jpg',
+        caption: 'Reference photo: an RFID reader module with card and key-fob tags, as used for card access to the locker.',
+        credit: { text: 'Giacomo Alessandroni · CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:RFID-RC522_photo.jpg' },
       },
     ],
   },
@@ -797,8 +806,9 @@ export const projects = [
     ],
     images: [
       {
-        file: 'GitHub repositories/Vanguard-Telemetry-Enterprise-IoT-Fleet-Tracking/cover.png',
-        caption: 'Illustration: GPS devices → ingest → geofence engine → live React command center.',
+        file: 'GitHub repositories/Vanguard-Telemetry-Enterprise-IoT-Fleet-Tracking/photo-1.jpg',
+        caption: 'Reference photo: a real-time vehicle tracking control room, the use case for the Vanguard command-center dashboard.',
+        credit: { text: 'UrusHyby · CC0', url: 'https://commons.wikimedia.org/wiki/File:Real-time_bus_tracking_control_room_in_Lebanon.jpg' },
       },
       {
         file: 'GitHub repositories/Vanguard-Telemetry-Enterprise-IoT-Fleet-Tracking/logo.jpg',
@@ -832,8 +842,14 @@ export const projects = [
     ],
     images: [
       {
-        file: 'GitHub repositories/smartring-f723e_disco/cover.png',
-        caption: 'Illustration: smart-ring UI on the Discovery board touchscreen, with the firmware layers.',
+        file: 'GitHub repositories/smartring-f723e_disco/photo-1.jpg',
+        caption: 'Reference photo: a smart ring. The firmware prototypes a ring-style UI on an STM32 Discovery touchscreen.',
+        credit: { text: 'Maurizio Pesce from Milan, Italia · CC BY 2.0', url: 'https://commons.wikimedia.org/wiki/File:MOTA_Smart_Ring_(16241008234).jpg' },
+      },
+      {
+        file: 'GitHub repositories/smartring-f723e_disco/photo-2.jpg',
+        caption: 'Reference photo: an ST Discovery evaluation board, the board family this UI firmware targets (STM32F723E-DISCO).',
+        credit: { text: 'Viswesr · CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:STM32_LV_Discovery_board.jpg' },
       },
     ],
   },
@@ -863,8 +879,9 @@ export const projects = [
     ],
     images: [
       {
-        file: 'GitHub repositories/USBDemoBoard_Firmware/cover.png',
-        caption: 'Illustration: PIC USB device board connected to the C# Windows host application.',
+        file: 'GitHub repositories/USBDemoBoard_Firmware/photo-1.jpg',
+        caption: 'Reference photo: a Microchip PIC USB demo board, the type of USB device this firmware and its C# host app drive.',
+        credit: { text: 'Wikimedia Commons · Copyrighted free use', url: 'https://commons.wikimedia.org/wiki/File:Pickit1_devboard.jpg' },
       },
     ],
   },
@@ -894,8 +911,9 @@ export const projects = [
     ],
     images: [
       {
-        file: 'GitHub repositories/24GHz-radar/cover.png',
-        caption: 'Illustration: Sense2GoL radar board, Doppler signal from a moving target, and the J-Link / Arduino tool chain.',
+        file: 'GitHub repositories/24GHz-radar/photo-1.jpg',
+        caption: 'Reference photo: CW and FMCW radar transceiver modules with patch-antenna arrays, the type of sensor this 24 GHz radar firmware runs on.',
+        credit: { text: 'Charly Whisky · CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:CW-and_FMCW_radar_transceivers.JPG' },
       },
     ],
   },

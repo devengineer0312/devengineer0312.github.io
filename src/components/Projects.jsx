@@ -22,6 +22,7 @@ function AlbumCard({ project, onOpen, index }) {
             <img src={thumbSrc(project.id, 0)} alt={project.images[0].caption} width={w} height={h} loading="lazy" />
             {project.featured && <span className="ribbon mono">Featured</span>}
             {project.repo && <span className="gh-badge mono"><BrandIcon item={ghIcon} size={14} /> GitHub</span>}
+            {project.images[0].credit && <span className="ref-badge mono">Reference photo</span>}
             <span className="count mono"><Images /> {count}</span>
           </div>
         </div>

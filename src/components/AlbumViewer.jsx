@@ -100,6 +100,11 @@ export default function AlbumViewer({ project, index, onIndex, onClose }) {
 
           <div className="caption">
             <p>{img.caption}</p>
+            {img.credit && (
+              <p className="credit mono">
+                Photo: <a href={img.credit.url} target="_blank" rel="noreferrer">{img.credit.text}</a>, via Wikimedia Commons
+              </p>
+            )}
           </div>
 
           <div className="strip" ref={stripRef}>
