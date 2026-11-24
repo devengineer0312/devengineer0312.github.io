@@ -388,24 +388,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .repo-box { margin-top: 18px; }
 
-.album-groups { display: grid; gap: 56px; }
-.group-head {
-  display: grid; grid-template-columns: auto 1fr; align-items: baseline; column-gap: 14px;
-  padding-bottom: 14px; margin-bottom: 22px; border-bottom: 1px solid var(--line-2);
-}
-.group-head h3 { font-size: 23px; }
-.group-count {
-  justify-self: start; padding: 3px 10px; border-radius: 999px; font-size: 11.5px;
-  color: var(--accent); background: rgba(243, 154, 76, .12);
-}
-.group-head p { grid-column: 1 / -1; color: var(--muted); font-size: 14.5px; margin-top: 4px; }
 .album-grid {
   display: grid; gap: 34px 26px;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
 }
 .album {
   position: relative; display: flex; flex-direction: column;
-  animation: rise .55s var(--ease) both; animation-delay: calc(var(--i) * 55ms);
+  animation: rise .55s var(--ease) both; animation-delay: calc(min(var(--i), 6) * 55ms);
 }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
 .album-hit { display: flex; flex-direction: column; text-align: left; width: 100%; }

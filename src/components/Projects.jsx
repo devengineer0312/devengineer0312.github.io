@@ -71,11 +71,9 @@ export default function Projects({ onOpen }) {
     })
   }, [cat, q])
 
-  // Albums are shown divided into their category groups.
-  const groups = categories
-    .filter((c) => c.id !== 'all')
-    .map((c) => ({ ...c, items: list.filter((p) => p.category === c.id) }))
-    .filter((g) => g.items.length)
+  // One continuous grid (no category grouping): featured albums first,
+  // then the rest in data order (hardware builds, then GitHub projects).
+  const ordered = [...list.filter((p) => p.featured), ...list.filter((p) => !p.featured)]
 
   const hardwareCount = projects.filter((p) => !p.repo).length
   const repoCount = projects.length - hardwareCount
@@ -124,19 +122,8 @@ export default function Projects({ onOpen }) {
         </div>
 
         {list.length ? (
-          <div className="album-groups" key={cat + q}>
-            {groups.map((g) => (
-              <section key={g.id} className="album-group" aria-labelledby={'grp-' + g.id}>
-                <header className="group-head">
-                  <h3 id={'grp-' + g.id}>{g.label}</h3>
-                  <span className="group-count mono">{g.items.length} {g.items.length === 1 ? 'project' : 'projects'}</span>
-                  <p>{g.blurb}</p>
-                </header>
-                <div className="album-grid">
-                  {g.items.map((p, i) => <AlbumCard key={p.id} project={p} onOpen={onOpen} index={i} />)}
-                </div>
-              </section>
-            ))}
+          <div className="album-grid" key={cat + q}>
+            {ordered.map((p, i) => <AlbumCard key={p.id} project={p} onOpen={onOpen} index={i} />)}
           </div>
         ) : (
           <p className="empty">
