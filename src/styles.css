@@ -386,15 +386,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .credit { margin-top: 4px; font-size: 11.5px; color: var(--muted); }
 .credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
-.album-body .langs { margin-top: 14px; }
-.repo-box { display: grid; gap: 14px; margin-top: 18px; padding: 14px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); }
-.langs { margin-top: auto; }
-.lang-bar { display: flex; height: 7px; border-radius: 7px; overflow: hidden; background: var(--surface-3); gap: 2px; }
-.lang-bar span { display: block; height: 100%; }
-.lang-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; font-size: 12.5px; }
-.lang-legend li { display: inline-flex; align-items: center; gap: 6px; }
-.lang-legend i { width: 9px; height: 9px; border-radius: 50%; }
-.lang-legend span { color: var(--faint); }
+.repo-box { margin-top: 18px; }
 
 .album-groups { display: grid; gap: 56px; }
 .group-head {

@@ -3,7 +3,6 @@ import { categories, projects } from '../data/projects.js'
 import { thumbSrc, imgSize } from '../lib.js'
 import { Images, Search } from './Icons.jsx'
 import BrandIcon from './BrandIcon.jsx'
-import LanguageBar from './LanguageBar.jsx'
 import { githubProfile, githubUser } from '../data/github.js'
 
 const ghIcon = { icon: 'github', name: 'GitHub' }
@@ -37,7 +36,6 @@ function AlbumCard({ project, onOpen, index }) {
           <ul className="tags">
             {project.tags.slice(0, 4).map((t) => <li key={t}>{t}</li>)}
           </ul>
-          {project.repo && <LanguageBar repo={project.repo} max={2} />}
         </div>
       </button>
       {/* quick-jump strip: open the album at a specific photo */}

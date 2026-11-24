@@ -4,7 +4,6 @@ import { profile } from '../data/profile.js'
 import { imgSrc, thumbSrc, imgSize, pad2 } from '../lib.js'
 import { ArrowLeft, ArrowRight, Close, Link } from './Icons.jsx'
 import BrandIcon from './BrandIcon.jsx'
-import LanguageBar from './LanguageBar.jsx'
 import { repoUrl } from '../data/github.js'
 
 const catLabel = (id) => categories.find((c) => c.id === id)?.label ?? id
@@ -136,7 +135,6 @@ export default function AlbumViewer({ project, index, onIndex, onClose }) {
               <a className="btn btn-ghost block" href={repoUrl(project.repo)} target="_blank" rel="noreferrer">
                 <BrandIcon item={{ icon: 'github', name: 'GitHub' }} size={18} /> View code on GitHub
               </a>
-              <LanguageBar repo={project.repo} max={4} />
             </div>
           )}
 
