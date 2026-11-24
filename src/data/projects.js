@@ -2,6 +2,7 @@
 // `file` is relative to the ../projects folder. Run `npm run images` after changing images:
 // it writes optimised WebP files to public/img/<id>/<index>.webp (+ -thumb.webp).
 // `trim: true` crops uniform black letterbox bars from screen captures.
+// `crop: [left, top, width, height]` cuts a screenshot down to the board (removes app UI).
 
 // One category per project, by what the product is for.
 export const categories = [
@@ -10,7 +11,7 @@ export const categories = [
   { id: 'robotics', label: 'Robotics & Machine Vision', blurb: 'Robot controllers, compute carriers and camera / sensing boards.' },
   { id: 'iot', label: 'IoT & Connected Devices', blurb: 'Networked sensor nodes and wireless processing platforms.' },
   { id: 'wearable', label: 'Wearables & Miniature Devices', blurb: 'Battery-powered, space-constrained products shaped to their enclosures.' },
-  { id: 'industrial', label: 'Industrial Control & Power', blurb: 'Isolated control, power management and high-current switching.' },
+  { id: 'industrial', label: 'Industrial Control & Power', blurb: 'Isolated control, communication interfaces, power management and high-current switching.' },
   { id: 'devboards', label: 'Dev Boards & Embedded Tools', blurb: 'Evaluation boards, USB devices and the host tools that drive them.' },
 ]
 
@@ -438,6 +439,196 @@ export const projects = [
       {
         file: 'IRIS Camera board/IRIS camera board2.png',
         caption: 'Side detail: lens module, FPC connector and IR sensor.',
+      },
+    ],
+  },
+
+  {
+    id: 'am625-carrier',
+    featured: true,
+    title: 'TI AM625 SOM + Carrier Board',
+    short: '10-layer AM625 SOM on a 6-layer carrier: dual display, dual Gigabit Ethernet, audio and eMMC.',
+    category: 'devboards',
+    layers: '6 L carrier · 10 L SOM',
+    tool: 'Altium Designer',
+    tags: ['TI AM625', 'SOM', 'Gigabit Ethernet', 'HDMI / LVDS', 'eMMC', 'Audio codec'],
+    summary:
+      'A carrier board for a custom Texas Instruments AM625 system-on-module, built for AI and full-HD dual-display applications. The SOM is a 10-layer design and the carrier a 6-layer board that brings out video, networking, audio, storage and USB, with its own DC-DC power stage and JTAG debug.',
+    specs: [
+      ['Processor', 'TI AM625 SOM'],
+      ['Layers', 'Carrier 6 · SOM 10'],
+      ['Storage', 'eMMC up to 32 GB (HS400) · microSD'],
+      ['Video', 'LVDS → RGB (SN75LVDS82) → HDMI'],
+      ['Network', '2× Gigabit Ethernet, RTL8211F RGMII PHY'],
+      ['Audio', 'TLV320AIC3106 codec'],
+      ['USB / power', 'USB-C + USB-A · TLV62595 DC-DC'],
+      ['Debug', 'JTAG (TC2050) · UART · SPI · I2C · CAN'],
+    ],
+    contributions: [
+      'Drew the block diagram and split the schematic into per-function sheets: DC-DC, eMMC & SD, HDMI, bootstrap, two GbE PHYs, USB, audio, JTAG/debug and SoC pin-out.',
+      'Routed the RGMII Ethernet, LVDS video and HS400 eMMC interfaces as impedance-controlled, length-matched groups.',
+      'Built the USB-C input with protection feeding a TLV62595 DC-DC converter for stable carrier power.',
+      'Placed all user connectors (2× RJ45, HDMI, USB-A, USB-C, audio jack, headers) along the board edges for an enclosure-ready layout.',
+    ],
+    images: [
+      {
+        file: 'Carrier Board for AM625/Carrier Board for AM625-1.png',
+        crop: [635, 150, 775, 710],
+        caption: '3D view of the carrier: AM625 SOM in the middle, two RJ45 Gigabit ports, USB-A, USB-C, HDMI and audio jack along the edges.',
+      },
+      {
+        file: 'Carrier Board for AM625/5.png',
+        caption: 'Block diagram: AM625 SOM with eMMC, LVDS→HDMI video, audio codec, RGMII Ethernet PHY, USB, SD card, JTAG and DC-DC power.',
+      },
+      {
+        file: 'Carrier Board for AM625/Carrier Board for AM625-3.png',
+        crop: [580, 160, 810, 800],
+        caption: 'Top-layer routing with ground pours and the isolated Ethernet magnetics area.',
+      },
+      {
+        file: 'Carrier Board for AM625/Carrier Board for AM625-2.png',
+        crop: [700, 170, 710, 690],
+        caption: 'Bottom side: microSD socket and memory under the SOM area.',
+      },
+    ],
+  },
+
+  {
+    id: 'esp32p4-gateway',
+    featured: true,
+    title: 'ESP32-P4 Solar LoRa IoT Gateway ("DeepSense V2")',
+    short: 'ESP32-P4 + ESP32-C6 gateway with an SX1262 LoRa module, I2S microphone and solar charging.',
+    category: 'iot',
+    layers: '75 × 75 mm',
+    tool: 'Altium Designer',
+    tags: ['ESP32-P4', 'ESP32-C6', 'LoRa SX1262', 'Solar MPPT', 'I2S audio', 'microSD'],
+    summary:
+      'A custom IoT gateway built around the Espressif ESP32-P4 processor. An ESP32-C6 module adds Wi-Fi 6 / BLE, and an eByte E22-900M22S (SX1262) module provides long-range LoRa links to field nodes. It records audio from an I2S microphone to microSD and runs off solar power with two batteries, so it can be deployed with no mains supply.',
+    specs: [
+      ['Processor', 'Espressif ESP32-P4'],
+      ['Wireless', 'ESP32-C6 (Wi-Fi 6 / BLE) · E22-900M22S LoRa'],
+      ['Audio', 'I2S microphone connector'],
+      ['Storage', 'microSD'],
+      ['Power', 'Solar input, CN3791 MPPT charger, 2 battery inputs'],
+      ['Regulation', 'MP1584 buck + TLV62569 DC-DC, TVS + fuse'],
+      ['Board', '75 × 75 mm, JLCPCB assembled'],
+    ],
+    contributions: [
+      'Placed the two radio modules at opposite corners with their antenna keep-outs at the board edge, away from the switching power stage.',
+      'Designed the solar charging and dual-battery power path with input protection (TVS, fuse, Schottky) and a buck stage for the 3.3 V rail.',
+      'Routed the ESP32-P4 fan-out with a stitched ground pad and short decoupling loops, and labelled every connector on the silkscreen (I2S, I2C, BAT1/2, SOLAR, programming).',
+      'Prepared BOM and CPL files and checked part placement in the JLCPCB assembly viewer.',
+    ],
+    images: [
+      {
+        file: 'Custom ESP32-P4 Based IoT Gateway PCB Design/Custom ESP32-P4 Based IoT Gateway PCB Design1.png',
+        caption: '3D render: ESP32-P4 at the centre, ESP32-C6 module (top right), LoRa module (right), microSD, USB-C and the power stage below.',
+      },
+      {
+        file: 'Custom ESP32-P4 Based IoT Gateway PCB Design/Custom ESP32-P4 Based IoT Gateway PCB Design2.png',
+        caption: 'PCB layout with the 75 mm outline: ground-stitched processor pad, LoRa module footprint and wide power copper.',
+      },
+      {
+        file: 'Custom ESP32-P4 Based IoT Gateway PCB Design/Custom ESP32-P4 Based IoT Gateway PCB Design3.png',
+        crop: [60, 20, 831, 812],
+        caption: 'Bottom side: labelled BAT1/BAT2, SOLAR, I2C and ESP32-C6 programming connectors.',
+      },
+      {
+        file: 'Custom ESP32-P4 Based IoT Gateway PCB Design/Custom ESP32-P4 Based IoT Gateway PCB Design4.png',
+        caption: 'Combined layer view of the routing.',
+      },
+      {
+        file: 'Custom ESP32-P4 Based IoT Gateway PCB Design/Custom ESP32-P4 Based IoT Gateway PCB Design5.png',
+        crop: [30, 75, 1080, 870],
+        caption: 'JLCPCB assembly preview: placement and part check before ordering.',
+      },
+    ],
+  },
+
+  {
+    id: 'lte-lora-ble-node',
+    featured: false,
+    title: 'BLE + LTE + LoRa Environmental Sensor Node',
+    short: 'Round tri-radio sensor node: LTE-M/NB-IoT, LoRa and BLE with three u.FL antennas.',
+    category: 'iot',
+    layers: 'Round, double-sided',
+    tool: 'Altium Designer',
+    tags: ['LTE-M / NB-IoT', 'Quectel BG770A', 'LoRa', 'BLE', 'STM32', 'Nano-SIM'],
+    summary:
+      'A circular environmental-monitoring node ("Envirometrics Prototype V1.0") with three radios, so it can report over whichever link is available: a Quectel cellular module for LTE-M / NB-IoT, a LoRa module and BLE. An STM32 runs the board, which also has a nano-SIM, SPI flash and connectors for a display, sensors and a battery.',
+    specs: [
+      ['MCU', 'STM32 (LQFP-64)'],
+      ['Cellular', 'Quectel BG770A-GL, LTE-M / NB-IoT + nano-SIM'],
+      ['Long range', 'LoRa module (RF96)'],
+      ['Short range', 'BLE'],
+      ['Antennas', '3× u.FL'],
+      ['I/O', 'Display (SPI), I2C + ADC sensor port, UART, USB, SWD, battery'],
+    ],
+    contributions: [
+      'Fit three radios on a small round board, each with its own u.FL feed placed at the edge and short RF traces.',
+      'Kept a solid ground pour under the RF section and stitched it with vias around the board edge.',
+      'Moved all connectors (display, sensors, SWD, battery) to the back so the top side stays free for the radios.',
+      'Built and assembled the prototype from the 3D design.',
+    ],
+    images: [
+      {
+        file: 'BLE, LTE & LORA based IoT device/BLE, LTE & LORA based IoT device 2.png',
+        caption: 'Assembled prototype: STM32 in the middle, Quectel LTE module (right), LoRa module (left) and nano-SIM holder.',
+      },
+      {
+        file: 'BLE, LTE & LORA based IoT device/BLE, LTE & LORA based IoT device 1.png',
+        caption: '3D model of the top side with the three u.FL antenna connectors.',
+      },
+      {
+        file: 'BLE, LTE & LORA based IoT device/BLE, LTE & LORA based IoT device 3.png',
+        caption: 'PCB layout: ground pour and via stitching around the RF sections.',
+      },
+      {
+        file: 'BLE, LTE & LORA based IoT device/BLE, LTE & LORA based IoT device 4.png',
+        caption: '3D model of the back: display, SWD, sensor and battery connectors.',
+      },
+      {
+        file: 'BLE, LTE & LORA based IoT device/BLE, LTE & LORA based IoT device 5.png',
+        caption: 'Assembled back side.',
+      },
+    ],
+  },
+
+  {
+    id: 'industrial-comm',
+    featured: false,
+    title: 'Industrial Communication & Control Board Set',
+    short: 'A family of control, power, sensor-ring and LED boards, built and assembled as a pilot run.',
+    category: 'industrial',
+    layers: 'Multi-board system',
+    tool: 'Altium Designer',
+    tags: ['ESP8266 / NodeMCU', 'ADS1115 ADC', 'Buck converters', 'Fan / load drivers', 'Pilot run'],
+    summary:
+      'A complete set of boards for one connected control system, taken through a pilot run. Controller boards carry a Wi-Fi module and an ADS1115 ADC, with two buck converters, fan and load drivers, and a 19 V input. Alongside them are MCU interface boards, ring-shaped sensor boards and LED array panels, all joined by keyed wire-to-board connectors.',
+    specs: [
+      ['Controller', 'NodeMCU (ESP8266) + ADS1115 16-bit ADC'],
+      ['Power', '19 V input → 2× buck regulators'],
+      ['Outputs', 'Fan and load drivers'],
+      ['Boards', 'Controller · MCU interface · ring sensor · LED array'],
+      ['Wiring', 'Keyed JST wire-to-board connectors'],
+    ],
+    contributions: [
+      'Split the system into separate board types so each could be tested and replaced on its own.',
+      'Designed the power stage and driver outputs on the controller boards, with every connector labelled.',
+      'Built the pilot batch and brought up the boards on the bench.',
+    ],
+    images: [
+      {
+        file: 'Industrial Communication Interface PCB/Industrial Communication Interface PCB2.png',
+        caption: 'The full board set: LED arrays, MCU interface boards, ring sensor boards and Wi-Fi controller boards.',
+      },
+      {
+        file: 'Industrial Communication Interface PCB/Industrial Communication Interface PCB1.png',
+        caption: 'The pilot batch on the bench after assembly.',
+      },
+      {
+        file: 'Industrial Communication Interface PCB/Industrial Communication Interface PCB3.png',
+        caption: 'Another view of the batch, with cable harnesses being made.',
       },
     ],
   },

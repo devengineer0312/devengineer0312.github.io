@@ -20,7 +20,7 @@ export const profile = {
     { icon: 'chip', value: '12+ years', label: 'Hardware engineering experience' },
     { icon: 'layers', value: '2–16 layers', label: 'PCB design · HDI · BGA · RF' },
     { icon: 'cube', value: 'SolidWorks · Ansys', label: '3D mechanical CAD & simulation' },
-    { icon: 'board', value: '9 projects', label: 'Real boards & assemblies below' },
+    { icon: 'board', value: '13 projects', label: 'Real boards & assemblies below' },
   ],
   // Save your headshot as portfolio/public/profile.jpg (portrait, ~1000×1250 px works best).
   // Until that file exists, a monogram placeholder is shown.

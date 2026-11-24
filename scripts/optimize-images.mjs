@@ -23,6 +23,11 @@ for (const project of projects) {
     const opts = img.animated ? { animated: true } : {}
 
     let base = sharp(input, opts).rotate()
+    if (img.crop) {
+      // Cut a screen capture down to the board: crop = [left, top, width, height] in source px.
+      const [left, top, width, height] = img.crop
+      base = sharp(await base.extract({ left, top, width, height }).toBuffer())
+    }
     if (img.trim) {
       // Trim uniform black letterbox bars from phone screen captures.
       const buf = await base.trim({ background: '#000000', threshold: 30 }).toBuffer()
