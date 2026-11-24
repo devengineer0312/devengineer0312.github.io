@@ -8,7 +8,7 @@ export default function About() {
         <div className="about-grid">
           <div className="about-copy">
             <p className="kicker mono">01 · About me</p>
-            <h2>Electronics and mechanical hardware, designed together.</h2>
+            <h2>Electronic hardware, from circuit to finished product.</h2>
             {about.paragraphs.map((p, i) => (
               <p key={i} className={`about-p ${i === 0 ? 'lead' : ''}`}>{p}</p>
             ))}

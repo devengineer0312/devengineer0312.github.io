@@ -4,7 +4,7 @@ export const profile = {
   name: 'Markese Sweet',
   initials: 'MS',
   title: 'Senior Hardware Engineer',
-  role: 'PCB Design · Embedded Systems · Mechanical CAD',
+  role: 'Electrical Engineering · PCB Design · Embedded Systems',
   location: 'North Carolina, USA',
   // No email / phone / social links on purpose: Upwork does not allow sharing outside
   // contact details, so every call to action points to the Upwork profile only.
@@ -12,14 +12,14 @@ export const profile = {
   // (looks like https://www.upwork.com/freelancers/~0123abcd...).
   // The link below is the Upwork "Find Work" page, which only you can see when logged in.
   upwork: 'https://www.upwork.com/nx/s/find-work/domestic',
-  headline: 'Electronics and mechanical design, from schematic and 3D CAD to production.',
+  headline: 'Electronic hardware from schematic and multilayer PCB to working, manufacturable boards.',
   pitch:
-    'I design hardware end to end. On the electrical side: system architecture, schematic capture and multilayer PCB layout (2–16 layers, HDI/BGA, RF and mixed-signal). On the mechanical side: SolidWorks enclosures, 3D PCB-to-case integration and cable/harness routing, with SolidWorks Simulation and Ansys for structural, thermal and CFD (Fluent) analysis. 12+ years taking products through prototype bring-up and into manufacturing.',
+    'I’m an electrical engineer who designs electronic products end to end: system architecture, schematic capture, multilayer PCB layout (2–16 layers, HDI/BGA, RF and mixed-signal), power and motor-control circuits, and embedded bring-up with STM32, ESP32, nRF, i.MX8 and FPGAs. I also handle the mechanical fit in SolidWorks and Ansys, so the board drops into its enclosure the first time. 12+ years taking products from prototype into manufacturing.',
   // Hero highlight cards: each one says plainly what kind of engineer you are.
   stats: [
-    { icon: 'chip', value: '12+ years', label: 'Hardware engineering experience' },
+    { icon: 'chip', value: '12+ years', label: 'Electrical & hardware engineering' },
     { icon: 'layers', value: '2–16 layers', label: 'PCB design · HDI · BGA · RF' },
-    { icon: 'cube', value: 'SolidWorks · Ansys', label: '3D mechanical CAD & simulation' },
+    { icon: 'cube', value: 'MCU · FPGA · SoC', label: 'Embedded & mixed-signal hardware' },
     { icon: 'board', value: '13 projects', label: 'Real boards & assemblies below' },
   ],
   // Save your headshot as portfolio/public/profile.jpg (portrait, ~1000×1250 px works best).
@@ -30,16 +30,16 @@ export const profile = {
 // "About me" section.
 export const about = {
   paragraphs: [
-    'I’m a Senior Hardware Engineer based in North Carolina with more than 12 years of hands-on product development. I cover the full hardware lifecycle: system architecture, schematic capture, multilayer PCB layout, prototype bring-up, validation and the manufacturing release package.',
-    'On the electronics side, I work on high-speed digital boards with BGA processors, FPGAs and DDR memory; RF and wireless products where antenna placement and 50 Ω lines matter; low-noise mixed-signal front ends; and power and motor-control hardware for robotics and industrial equipment.',
-    'On the mechanical side, I design in SolidWorks: enclosures, equipment frames, mounting structures, sensor fixtures, full 3D PCB-to-enclosure assemblies, and cable, harness and piping routes with SolidWorks Routing. Before anything is built, I check structural stress and deformation with SolidWorks Simulation and Ansys Mechanical, and thermal behaviour and airflow with Ansys Thermal and Ansys Fluent. That means the board, the housing and the production process are designed together, and I hand over everything needed to build them: schematics, Gerbers, BOMs, STEP models and assembly drawings.',
+    'I’m a Senior Hardware Engineer and electrical engineer (B.S.E.E.) based in North Carolina, with more than 12 years of hands-on electronic product development. I cover the full hardware lifecycle: system architecture, component selection, schematic capture, multilayer PCB layout, prototype bring-up, validation and the manufacturing release package.',
+    'My core work is electronics: high-speed digital boards with BGA processors, FPGAs and DDR memory; RF and wireless products (BLE, Wi-Fi, LTE, LoRa) where antenna placement and 50 Ω lines matter; low-noise mixed-signal front ends such as 64-channel EEG acquisition; and power, battery-charging and motor-control circuits for robotics and industrial equipment. I bring boards up on the bench myself with scopes, supplies and debuggers, working alongside the firmware.',
+    'To make sure the electronics fit and survive in the real product, I also do the mechanical integration: SolidWorks enclosures and 3D PCB-to-case assemblies, harness routing, and thermal, airflow and structural checks in SolidWorks Simulation and Ansys. I hand over everything needed to build the product: schematics, Gerbers, BOMs, STEP models and assembly drawings.',
   ],
   facts: [
     ['Role', 'Senior Hardware Engineer'],
     ['Experience', '12+ years · 4 engineering teams'],
     ['Electronics', 'PCB 2–16 layers · HDI · BGA · RF · Mixed-signal · Power'],
-    ['Mechanical', 'SolidWorks CAD, Simulation & Routing · GD&T drawings'],
-    ['Simulation', 'Ansys Mechanical · Thermal · Fluent (CFD) · HFSS'],
+    ['Embedded', 'STM32 · ESP32 · nRF · i.MX8 · RK3566 · FPGA'],
+    ['Mechanical fit', 'SolidWorks · Ansys thermal & structural'],
     ['Education', 'B.S. Electrical Engineering, East Carolina University'],
     ['Based in', 'North Carolina, USA · US time zones'],
   ],
@@ -47,10 +47,10 @@ export const about = {
   services: [
     { title: 'PCB Design & Layout', body: 'Multilayer, HDI/BGA, controlled impedance, DDR length matching, RF and mixed-signal partitioning.' },
     { title: 'Embedded Hardware', body: 'STM32, ESP32, nRF53, i.MX8, RK3566 and FPGA-based systems, with bring-up alongside firmware.' },
-    { title: 'Mechanical CAD', body: 'SolidWorks enclosures, fixtures, equipment assemblies, cable / harness routing and ECAD-MCAD fit checks.' },
-    { title: 'Simulation', body: 'Structural FEA in SolidWorks Simulation and Ansys Mechanical, thermal and CFD in Ansys Fluent, RF in HFSS and ADS.' },
     { title: 'Power & Motor Control', body: 'DC/DC, BMS and charging, isolated I/O, high-current switching, multi-channel BLDC drives.' },
+    { title: 'RF & Wireless', body: 'BLE, Wi-Fi, LTE-M/NB-IoT and LoRa designs, antenna feeds and matching, simulated in HFSS and ADS.' },
     { title: 'Manufacturing Release', body: 'DFM/DFA reviews, BOM optimisation, Gerber / NC drill / CPL / STEP packages.' },
+    { title: 'Mechanical Integration', body: 'SolidWorks enclosures and PCB-to-case fit, harness routing, thermal and structural checks in Ansys.' },
   ],
 }
 
