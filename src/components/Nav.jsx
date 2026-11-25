@@ -21,7 +21,7 @@ export default function Nav() {
   return (
     <header className={`nav ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="container nav-inner">
-        <a href="#top" className="brand" aria-label="Back to top">
+        <a href="./" className="brand" aria-label="Back to top">
           <span className="brand-mark">{profile.initials}</span>
           <span className="brand-text">
             <strong>{profile.name}</strong>
