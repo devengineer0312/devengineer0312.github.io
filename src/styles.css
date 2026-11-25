@@ -549,6 +549,16 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .timeline { position: relative; display: grid; gap: 8px; }
 .tl-item { display: grid; grid-template-columns: 190px 1fr; gap: 28px; position: relative; padding: 22px 0; border-top: 1px solid var(--line); }
 .tl-when { color: var(--copper); padding-top: 4px; }
+.tl-head { display: flex; align-items: center; gap: 16px; }
+.co-mark {
+  flex: 0 0 auto; display: grid; place-items: center; width: 64px; height: 64px; padding: 8px;
+  border-radius: 14px; background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow);
+}
+.co-mark img { width: 100%; height: 100%; object-fit: contain; }
+.co-badge {
+  padding: 0; color: #fff; background: var(--c); border-color: transparent;
+  font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: .02em;
+}
 .tl-body h3 { font-size: 20px; }
 .tl-body .at { color: var(--muted); font-weight: 500; }
 .tl-place { color: var(--faint); margin-top: 4px; }

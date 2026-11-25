@@ -158,6 +158,7 @@ export const experience = [
   {
     role: 'Hardware Engineer',
     company: 'Carolina Electronic Assemblers, Inc',
+    badge: 'CEA', color: '#1d4f91',
     place: 'Smithfield, NC',
     period: 'Oct 2024 – Aug 2026',
     points: [
@@ -170,6 +171,7 @@ export const experience = [
   {
     role: 'Senior Electrical Engineer',
     company: 'Better Boards, Inc',
+    badge: 'BB', color: '#1f8a5a',
     place: 'Cary, NC',
     period: 'Apr 2020 – Aug 2024',
     points: [
@@ -181,6 +183,7 @@ export const experience = [
   {
     role: 'RF Designer',
     company: 'Laut Design',
+    logo: 'laut-design.png',
     place: 'Raleigh, NC',
     period: 'Nov 2016 – Mar 2020',
     points: [
@@ -192,6 +195,7 @@ export const experience = [
   {
     role: 'Electrical Engineer',
     company: 'GRT Electronics',
+    logo: 'grt-electronics.png',
     place: 'Raleigh, NC',
     period: 'Aug 2014 – Sep 2016',
     points: [
@@ -205,6 +209,7 @@ export const experience = [
 export const education = {
   degree: 'B.S. Electrical Engineering',
   school: 'East Carolina University',
+  badge: 'ECU', color: '#592a8a',
   place: 'Greenville, NC',
   period: '2010 – 2014',
 }
