@@ -19,8 +19,9 @@ export const profile = {
   stats: [
     { icon: 'chip', value: '12+ years', label: 'Electrical & hardware engineering' },
     { icon: 'layers', value: '2–16 layers', label: 'PCB design · HDI · BGA · RF' },
-    { icon: 'cube', value: 'MCU · FPGA · SoC', label: 'Embedded & mixed-signal hardware' },
-    { icon: 'board', value: '15 projects', label: 'Real boards & assemblies below' },
+    { icon: 'board', value: 'MCU · FPGA · SoC', label: 'Embedded & mixed-signal hardware' },
+    { icon: 'antenna', value: 'RF & Wireless', label: 'BLE · Wi-Fi · LTE · LoRa · GNSS' },
+    { icon: 'cube', value: 'Mechanical design', label: 'SolidWorks CAD · Ansys simulation' },
   ],
   // Save your headshot as portfolio/public/profile.jpg (portrait, ~1000×1250 px works best).
   // Until that file exists, a monogram placeholder is shown.

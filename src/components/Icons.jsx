@@ -44,6 +44,9 @@ export const Briefcase = () => (
 export const Link = () => (
   <S><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1" /><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1" /></S>
 )
+export const Antenna = () => (
+  <S><path d="M12 12v9M9 21h6" /><circle cx="12" cy="10" r="1.6" /><path d="M8.5 6.5a5 5 0 0 0 0 7M15.5 6.5a5 5 0 0 1 0 7M5.6 3.6a9 9 0 0 0 0 12.8M18.4 3.6a9 9 0 0 1 0 12.8" /></S>
+)
 export const Chip = () => (
   <S><rect x="6" y="6" width="12" height="12" rx="1.5" /><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" /></S>
 )

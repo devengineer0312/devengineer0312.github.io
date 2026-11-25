@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { profile } from '../data/profile.js'
-import { ArrowRight, Briefcase, Chip, Layers, Cube, Board } from './Icons.jsx'
+import { ArrowRight, Briefcase, Chip, Layers, Cube, Board, Antenna } from './Icons.jsx'
 
-const statIcons = { chip: Chip, layers: Layers, cube: Cube, board: Board }
+const statIcons = { chip: Chip, layers: Layers, cube: Cube, board: Board, antenna: Antenna }
 
 // Subtle PCB traces behind the hero.
 function Traces() {
