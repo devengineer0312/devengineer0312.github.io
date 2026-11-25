@@ -226,6 +226,51 @@ export const projects = [
   },
 
   {
+    id: 'rk3588-vio',
+    featured: true,
+    title: 'RK3588 High-Speed Carrier for Visual-Inertial Odometry',
+    short: '6-layer RK3588 SoM carrier: 4 synchronised cameras, UWB, IMU, Wi-Fi and Li-Po power.',
+    category: 'robotics',
+    layers: '6 layers',
+    tool: 'Altium Designer',
+    tags: ['Rockchip RK3588', 'SoM carrier', '4× MIPI camera', 'Qorvo UWB', 'IMU', 'Controlled impedance'],
+    summary:
+      'A compact 6-layer high-speed carrier board ("StrikeAR VIO", Rev A) for a Rockchip RK3588 system-on-module, built for visual-inertial odometry, spatial tracking and augmented reality. It brings together four synchronised camera interfaces, Qorvo UWB positioning, an IMU, Wi-Fi, USB-C and Li-Po battery management, with the SoM mounted on four high-density board-to-board connectors.',
+    specs: [
+      ['Processor', 'Rockchip RK3588 SoM'],
+      ['Stack-up', '6 layers, controlled impedance'],
+      ['Vision', '4 camera connectors, shared FSIN frame sync'],
+      ['Positioning', 'Qorvo UWB module + IMU (SPI)'],
+      ['Wireless', 'Wi-Fi module'],
+      ['Power', 'USB-C input, Li-Po charger, 3V3 / 2V8 / 1V8 / 1V2 rails'],
+      ['SoM link', '4× high-density board-to-board connectors'],
+      ['Controls', 'REC · MASK · RST · PWR buttons'],
+    ],
+    contributions: [
+      'Routed the camera MIPI lanes and other high-speed links as controlled-impedance differential pairs with length matching across the 6-layer stack.',
+      'Wired a shared frame-sync (FSIN) line and camera clocks so all four cameras capture in lockstep, which visual-inertial odometry needs.',
+      'Fanned out four dense board-to-board connectors for the RK3588 SoM and placed the IMU centrally on the back side, close to the cameras’ reference frame.',
+      'Built multi-rail power distribution from USB-C and a Li-Po cell (charger, 3V3, 2V8, 1V8 and 1V2 regulators), with attention to signal and power integrity.',
+      'Kept the UWB and Wi-Fi modules at opposite edges with their antennas overhanging the board outline.',
+    ],
+    images: [
+      {
+        file: 'RK3588 High-speed IO board/RK3588 high-speed (2).png',
+        caption: 'Top side: four camera connectors (CAM1–CAM4), Qorvo UWB module, Wi-Fi module, USB-C, battery connector, charger and the 3V3 / 2V8 / 1V8 / 1V2 regulators.',
+      },
+      {
+        file: 'RK3588 High-speed IO board/RK3588 high-speed (1).png',
+        caption: 'Bottom side: four high-density board-to-board connectors for the RK3588 SoM, with the IMU at the centre of the board.',
+      },
+      {
+        file: 'RK3588 High-speed IO board/RK3588 high-speed (3).png',
+        crop: [0, 20, 1231, 780],
+        caption: 'PCB layout: length-matched high-speed routing, power pours and the SoM connector fan-out on the 6-layer stack.',
+      },
+    ],
+  },
+
+  {
     id: 'openeew',
     featured: false,
     title: 'OpenEEW Earthquake Sensor',
