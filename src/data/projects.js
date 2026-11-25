@@ -640,6 +640,44 @@ export const projects = [
   },
 
   {
+    id: 'wifi-halow-mm6108',
+    featured: false,
+    title: 'Sub-1 GHz Wi-Fi HaLow RF Transceiver (MM6108)',
+    short: 'Long-range, low-power Wi-Fi HaLow board: Morse Micro MM6108, RFFC5071 mixer and dual SMA.',
+    category: 'iot',
+    layers: 'Multilayer RF',
+    tool: 'Altium Designer',
+    tags: ['Wi-Fi HaLow', 'Morse Micro MM6108', 'Qorvo RFFC5071', 'Sub-1 GHz RF', 'Impedance matching', 'SMA'],
+    summary:
+      'A compact sub-1 GHz Wi-Fi HaLow (802.11ah) communication board built around the Morse Micro MM6108 transceiver and a Qorvo RFFC5071 frequency-conversion IC, for long-range, low-power IoT links. The multilayer PCB carries controlled-impedance RF transmission lines, impedance-matching networks, the frequency-conversion stage, two SMA antenna ports and low-noise power regulation.',
+    specs: [
+      ['Standard', 'Wi-Fi HaLow (IEEE 802.11ah), sub-1 GHz'],
+      ['Transceiver', 'Morse Micro MM6108'],
+      ['Frequency conversion', 'Qorvo RFFC5071 (synthesiser + mixer)'],
+      ['RF ports', '2× edge-mount SMA'],
+      ['Host interface', 'SPI / SDIO header + control lines'],
+      ['Power', '+5 V input, low-noise LDO rails'],
+    ],
+    contributions: [
+      'Laid out 50 Ω controlled-impedance RF lines from both SMA connectors, with via fences along the feeds and solid ground underneath.',
+      'Placed the matching networks and RF transformers right next to the RFFC5071 so the RF paths stay short and symmetrical.',
+      'Separated the RF section from the digital host interface and power regulators to limit EMI coupling, with dense decoupling at every supply pin.',
+      'Built the low-noise multi-rail supply from a single +5 V input.',
+    ],
+    images: [
+      {
+        file: 'Mark-Wi-Fi Halow MM6108 RF PCB design/Wi-Fi HaLow MM6108 RF PCB Design2.png',
+        caption: '3D view: the two SMA antenna ports, the RFFC5071 frequency-conversion stage with matching networks and RF transformers, the transceiver and the LDO regulators.',
+      },
+      {
+        file: 'Mark-Wi-Fi Halow MM6108 RF PCB design/Wi-Fi HaLow MM6108 RF PCB Design1.png',
+        crop: [40, 165, 600, 985],
+        caption: 'Top layer in Altium Designer: controlled-impedance RF feeds with via fencing, the host interface header (SPI / SDIO / reset) and the +5 V input.',
+      },
+    ],
+  },
+
+  {
     id: 'industrial-comm',
     featured: false,
     title: 'Industrial Communication & Control Board Set',
