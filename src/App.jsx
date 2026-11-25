@@ -62,7 +62,6 @@ export default function App() {
       <footer className="footer">
         <div className="container footer-inner">
           <span className="mono">© {new Date().getFullYear()} Markese Sweet · Senior Hardware Engineer</span>
-          <span className="mono muted">Designed in React · images from real project files</span>
         </div>
       </footer>
       {open && (

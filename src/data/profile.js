@@ -4,7 +4,7 @@ export const profile = {
   name: 'Markese Sweet',
   initials: 'MS',
   title: 'Senior Hardware Engineer',
-  role: 'Electrical Engineering · PCB Design · Embedded Systems',
+  role: 'Electrical Engineering · PCB Design · Embedded Systems · Mechanical Design',
   location: 'North Carolina, USA',
   // No email / phone / social links on purpose: Upwork does not allow sharing outside
   // contact details, so every call to action points to the Upwork profile only.

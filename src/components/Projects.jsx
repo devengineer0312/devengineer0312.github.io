@@ -75,8 +75,6 @@ export default function Projects({ onOpen }) {
   // then the rest in data order (hardware builds, then GitHub projects).
   const ordered = [...list.filter((p) => p.featured), ...list.filter((p) => !p.featured)]
 
-  const hardwareCount = projects.filter((p) => !p.repo).length
-  const repoCount = projects.length - hardwareCount
 
   return (
     <section className="section" id="projects">
@@ -85,10 +83,6 @@ export default function Projects({ onOpen }) {
           <div>
             <p className="kicker mono">02 · Portfolio</p>
             <h2>Project albums</h2>
-            <p className="section-lede">
-              {hardwareCount} hardware builds and {repoCount} firmware / software projects from my GitHub.
-              Open any album to step through the images and read the spec sheet.
-            </p>
           </div>
           <div className="projects-tools">
           <a className="btn btn-ghost btn-sm" href={githubProfile} target="_blank" rel="noreferrer">

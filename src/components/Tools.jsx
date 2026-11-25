@@ -8,7 +8,7 @@ export default function Tools() {
         <header className="section-head">
           <div>
             <p className="kicker mono">04 · Tools</p>
-            <h2>The software and silicon I work with</h2>
+            <h2>The software and tools I work with</h2>
             <p className="section-lede">
               Professional ECAD and MCAD tools for design, simulation tools for checking it, and the platforms the boards are built around.
             </p>
@@ -51,7 +51,6 @@ export default function Tools() {
             {interfaces.map((i) => <li key={i} className="chip chip-quiet">{i}</li>)}
           </ul>
         </div>
-        <p className="tm-note">Product names and logos are trademarks of their respective owners and are shown to indicate tool experience.</p>
       </div>
     </section>
   )
